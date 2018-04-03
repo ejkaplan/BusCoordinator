@@ -1,4 +1,4 @@
-package RunCode;
+package Coordinators;
 
 import Simulation.*;
 
