@@ -1,5 +1,7 @@
 This is the final project for Mr. Kaplan's APCS-A class in 2018. In this problem, there are bus stations randomly spread across a 2D grid, with passengers randomly distributed among the stations. Each passenger wants to go to another station, also chosen randomly. You have a relatively small number of busses, each with a finite capacity. Your goal is to move all of the passengers to their desired stations in as few timesteps as possible.
 
+[Javadoc](https://htmlpreview.github.io/?https://github.com/ejkaplan/BusCoordinator/blob/master/BusRoutes/doc/index.html)
+
 Rules:
 - You must write a subclass of BusCoordinator. Your subclass must override the go() method, which decides what to do on a given timestep. You may not override any other functions or write any other classes. You may write as many helper methods in your class as you want. (And you are encouraged to do so.)
 - Your class must be written in the Coordinators package. This just makes sure that you can't call any methods that you shouldn't. This means that you will need to import from the Simulation package. (Check the RandomCoordinator for an example if you don't remember how to do this.)
