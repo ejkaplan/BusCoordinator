@@ -38,7 +38,7 @@ public class RandomCoordinator extends BusCoordinator {
 			}
 			// Send the bus over to a random other station.
 			List<Station> stations = getStations();
-			b.setDest(stations.get(r.nextInt(stations.size())));
+			b.setDestination(stations.get(r.nextInt(stations.size())));
 		}
 	}
 

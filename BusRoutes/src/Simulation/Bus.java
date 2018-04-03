@@ -90,7 +90,7 @@ public class Bus extends Location {
 	 *            The station to which you want the bus to go.
 	 * @return true if the command was successfully given, false otherwise
 	 */
-	public boolean setDest(Station s) {
+	public boolean setDestination(Station s) {
 		if (atDestination() && s != destination) {
 			arrivalTime = sim.getTime() + destination.manhattanDistance(s);
 			destination = s;

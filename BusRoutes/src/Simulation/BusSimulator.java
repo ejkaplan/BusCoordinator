@@ -4,6 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * The simulator that tracks the state of the world. You need to make one to
+ * make the simulation work, but your code should never directly reference this
+ * class.
+ * 
+ * @author Eliot J. Kaplan
+ *
+ */
 public class BusSimulator {
 
 	private List<Station> stations;

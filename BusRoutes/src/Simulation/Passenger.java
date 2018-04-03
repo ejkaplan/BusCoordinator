@@ -59,13 +59,11 @@ public class Passenger {
 	 * @return true if the customer was able to exit, false otherwise.
 	 */
 	public boolean exitBus() {
-		if (!(location instanceof Bus)) {
-			return false;
-		}
 		Bus myBus = (Bus) location;
-		if (myBus.atDestination()) {
+		if (myBus.getStation() != null) {
 			myBus.removePassenger(this);
-			location = myBus.getDestination();
+			location = myBus.getStation();
+			location.addPassenger(this);
 			return true;
 		}
 		return false;
