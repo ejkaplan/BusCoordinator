@@ -1,5 +1,13 @@
 package Simulation;
 
+/**
+ * A single passenger. Each passenger has is currently at a Location (either a
+ * bus or a station) and has a station that they want to get to (their
+ * destination). Your goal is to get every passenger to their desired station.
+ * 
+ * @author Eliot J. Kaplan
+ *
+ */
 public class Passenger {
 
 	private Station destination;
