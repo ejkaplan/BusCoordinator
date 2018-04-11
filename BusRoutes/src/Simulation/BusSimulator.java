@@ -39,7 +39,7 @@ public class BusSimulator {
 		busses = new ArrayList<Bus>();
 		passengers = new ArrayList<Passenger>();
 		done = false;
-		cutoff = nBusses * nStations;
+		cutoff = width * height;
 		this.coordinator = coordinator;
 		this.coordinator.setSimulation(this);
 		// Place the stations randomly, without overlapping.
@@ -121,8 +121,8 @@ public class BusSimulator {
 	 */
 	public final int run() {
 		if (done) // If the simulation has already been run, it can't run again.
-			return Integer.MAX_VALUE;
-		int noProgress = 0;
+			return -1;
+		int killTime = cutoff;
 		while (passengers.size() > 0) {
 			// Jump ahead to whenever the next bus will be available.
 			int nextTime = Integer.MAX_VALUE;
@@ -139,7 +139,6 @@ public class BusSimulator {
 					coordinator.go(); // Get instructions from the AI.
 				} catch (Exception e) {
 					e.printStackTrace();
-					return Integer.MAX_VALUE;
 				}
 				List<Passenger> arrived = new ArrayList<Passenger>();
 				for (Passenger p : passengers) {
@@ -153,9 +152,8 @@ public class BusSimulator {
 				}
 			}
 			if (progress)
-				noProgress = 0;
-			else noProgress++;
-			if (noProgress > cutoff) { // End the program if nobody has been delivered in a long time.
+				killTime = time + cutoff;
+			if (time >= killTime) { // End the program if nobody has been delivered in a long time.
 				System.err.println(
 						"No passengers delivered for too long. " + passengers.size() + " undelivered passengers.");
 				return Integer.MAX_VALUE;
