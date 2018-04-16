@@ -119,4 +119,45 @@ public class Bus extends Location {
 				+ ", passenger count=" + getPassengers().size() + "]";
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + arrivalTime;
+		result = prime * result + capacity;
+		result = prime * result + ((destination == null) ? 0 : destination.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Bus other = (Bus) obj;
+		if (arrivalTime != other.arrivalTime)
+			return false;
+		if (capacity != other.capacity)
+			return false;
+		if (destination == null) {
+			if (other.destination != null)
+				return false;
+		} else if (!destination.equals(other.destination))
+			return false;
+		return true;
+	}
+
 }
